@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model Asp.NetMVCcrud.Models.employee
+<h2>Save</h2>
+@using (Html.BeginForm("save", "Employee", FormMethod.Post, new { id = "popupForm" }))
+{
+    if (Model != null && Model.employeeid > 0)
+    {
+        @Html.HiddenFor(a => a.employeeid)
+    }
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(a => a.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.name)
+    </div>
+    
+    <div class="form-group">
+        <label>Office</label>
+        @Html.TextBoxFor(a => a.office, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.office)
+    </div>
+    
+    <div class="form-group">
+        <label>Position</label>
+        @Html.TextBoxFor(a => a.position, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.position)
+    </div>
+    
+    <div class="form-group">
+        <label>Age</label>
+        @Html.TextBoxFor(a => a.age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.age)
+    </div>
+    
+    <div class="form-group">
+        <label>Salary</label>
+        @Html.TextBoxFor(a => a.salary, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.salary)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
+

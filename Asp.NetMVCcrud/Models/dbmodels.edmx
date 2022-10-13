@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mvccruddbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+          </Key>
+          <Property Name="employeeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" />
+          <Property Name="position" Type="nchar" MaxLength="10" />
+          <Property Name="office" Type="nchar" MaxLength="10" />
+          <Property Name="age" Type="nchar" MaxLength="10" />
+          <Property Name="salary" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="mvccruddbModelStoreContainer">
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mvccruddbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="employeeid" />
+          </Key>
+          <Property Name="employeeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="office" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="age" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="salary" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="employees" EntityType="Self.employee" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mvccruddbModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="mvccruddbModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="employeeid" ColumnName="employeeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="office" ColumnName="office" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

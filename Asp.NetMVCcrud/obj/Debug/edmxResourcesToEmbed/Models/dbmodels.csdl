@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvccruddbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="employeeid" />
+    </Key>
+    <Property Name="employeeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="position" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="office" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="age" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="salary" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="employees" EntityType="Self.employee" />
+  </EntityContainer>
+</Schema>

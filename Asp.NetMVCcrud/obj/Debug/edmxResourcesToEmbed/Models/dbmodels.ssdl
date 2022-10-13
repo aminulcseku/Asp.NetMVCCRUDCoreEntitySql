@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvccruddbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="employeeid" />
+    </Key>
+    <Property Name="employeeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+    <Property Name="position" Type="nchar" MaxLength="10" />
+    <Property Name="office" Type="nchar" MaxLength="10" />
+    <Property Name="age" Type="nchar" MaxLength="10" />
+    <Property Name="salary" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityContainer Name="mvccruddbModelStoreContainer">
+    <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
